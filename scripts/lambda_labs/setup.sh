@@ -10,7 +10,7 @@
 #   ssh ubuntu@<instance-ip>
 #   git clone https://github.com/YOUR_USERNAME/mhc-repro.git
 #   cd mhc-repro
-#   bash scripts/lambda_labs_labs/setup.sh
+#   bash scripts/lambda_labs/setup.sh
 # =============================================================================
 
 set -e  # Exit on error
@@ -98,7 +98,7 @@ echo "Verifying model creation..."
 python3 -c "
 import sys
 sys.path.insert(0, '.')
-from scripts.lambda.train_c4 import ModelConfig, GPT
+from scripts.lambda_labs.train_c4 import ModelConfig, GPT
 
 # Test model creation at 1B scale
 config = ModelConfig(n_layers=32, hidden_dim=2048, connection_type='mhc')
