@@ -10,7 +10,7 @@
 #   ssh ubuntu@<instance-ip>
 #   git clone https://github.com/YOUR_USERNAME/mhc-repro.git
 #   cd mhc-repro
-#   bash scripts/lambda/setup.sh
+#   bash scripts/lambda_labs_labs/setup.sh
 # =============================================================================
 
 set -e  # Exit on error
@@ -64,7 +64,7 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 # Install other dependencies
 echo ""
 echo "Installing dependencies..."
-pip install -r scripts/lambda/requirements.txt
+pip install -r scripts/lambda_labs/requirements.txt
 
 # Verify installation
 echo ""
@@ -141,8 +141,8 @@ echo "=============================================="
 echo ""
 echo "Next steps:"
 echo "  1. (Optional) Login to W&B: wandb login"
-echo "  2. Run experiments: bash scripts/lambda/run_experiments.sh"
+echo "  2. Run experiments: bash scripts/lambda_labs/run_experiments.sh"
 echo ""
 echo "Or run a single experiment:"
-echo "  python scripts/lambda/train_c4.py --connection mhc --depth 32 --seed 42"
+echo "  python scripts/lambda_labs/train_c4.py --connection mhc --depth 32 --seed 42"
 echo ""

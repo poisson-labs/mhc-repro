@@ -14,13 +14,13 @@ git clone https://github.com/YOUR_USERNAME/mhc-repro.git
 cd mhc-repro
 
 # 4. Run setup
-bash scripts/lambda/setup.sh
+bash scripts/lambda_labs/setup.sh
 
 # 5. (Optional) Login to W&B for monitoring
 wandb login
 
 # 6. Run experiments
-bash scripts/lambda/run_experiments.sh
+bash scripts/lambda_labs/run_experiments.sh
 ```
 
 ## Cost & Time Estimates
@@ -75,29 +75,29 @@ bash scripts/lambda/run_experiments.sh
 
 ```bash
 # Single experiment
-python scripts/lambda/train_c4.py \
+python scripts/lambda_labs/train_c4.py \
     --connection mhc \
     --depth 32 \
     --seed 42 \
     --steps 10000
 
 # Multiple seeds
-python scripts/lambda/train_c4.py \
+python scripts/lambda_labs/train_c4.py \
     --connection mhc \
     --depth 32 \
     --seeds 42,123,456
 
 # All experiments (HC/mHC at both depths)
-python scripts/lambda/train_c4.py \
+python scripts/lambda_labs/train_c4.py \
     --connection all \
     --depth all \
     --seeds 42,123,456
 
 # Disable W&B logging
-python scripts/lambda/train_c4.py --no-wandb ...
+python scripts/lambda_labs/train_c4.py --no-wandb ...
 
 # Disable gradient checkpointing (if memory allows)
-python scripts/lambda/train_c4.py --no-checkpoint ...
+python scripts/lambda_labs/train_c4.py --no-checkpoint ...
 ```
 
 ## Output Structure

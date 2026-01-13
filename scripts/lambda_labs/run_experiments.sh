@@ -13,9 +13,9 @@
 # Estimated cost: ~$25-30 at Lambda Labs rates
 #
 # Usage:
-#   bash scripts/lambda/run_experiments.sh           # Run all 18 experiments
-#   bash scripts/lambda/run_experiments.sh --quick   # Run core 4 (HC/mHC at 32/48)
-#   bash scripts/lambda/run_experiments.sh --test    # Quick test (1 seed each)
+#   bash scripts/lambda_labs/run_experiments.sh           # Run all 18 experiments
+#   bash scripts/lambda_labs/run_experiments.sh --quick   # Run core 4 (HC/mHC at 32/48)
+#   bash scripts/lambda_labs/run_experiments.sh --test    # Quick test (1 seed each)
 # =============================================================================
 
 set -e  # Exit on error
@@ -108,7 +108,7 @@ for METHOD in "${METHODS[@]}"; do
             # Run experiment
             TRAIN_START=$(date +%s)
 
-            python scripts/lambda/train_c4.py \
+            python scripts/lambda_labs/train_c4.py \
                 --connection $METHOD \
                 --depth $DEPTH \
                 --seed $SEED \
@@ -166,5 +166,5 @@ done
 
 echo ""
 echo "Next: Run visualization"
-echo "  python scripts/lambda/visualize_c4.py"
+echo "  python scripts/lambda_labs/visualize_c4.py"
 echo ""
