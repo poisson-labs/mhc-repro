@@ -989,6 +989,8 @@ def main():
                        help="Batch size")
     parser.add_argument("--no-checkpoint", action="store_true",
                        help="Disable gradient checkpointing")
+    parser.add_argument("--lr", type=float, default=None,
+                       help="Learning rate (default: 1e-4)")
 
     args = parser.parse_args()
 
@@ -1026,6 +1028,7 @@ def main():
                     max_steps=args.steps,
                     batch_size=args.batch_size,
                     wandb_project=None if args.no_wandb else args.wandb_project,
+                    learning_rate=args.lr if args.lr else 1e-4,
                 )
                 config = ExperimentConfig(model=model_config, train=train_config)
 
