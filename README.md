@@ -54,8 +54,13 @@ downloads TinyShakespeare into `data/`. Each model writes its history and checkp
 
 ```bash
 python -m src.train                                  # 5,000 steps each
-python -m src.train --connection mhc --steps 500     # one connection type
 python scripts/visualize.py                          # loss and Amax figures from runs/ into figures/
+```
+
+With `--connection` the run writes straight into `--run-dir`, with no `<connection>` subdirectory:
+
+```bash
+python -m src.train --connection mhc --steps 500 --run-dir runs/mhc
 ```
 
 Also in `scripts/`:
