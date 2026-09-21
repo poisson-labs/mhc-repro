@@ -8,8 +8,7 @@ Generates publication-quality figures matching Part 1 style:
 - Gray (#6C757D) for residual baseline
 - Serif fonts, clean styling
 
-Author: Taylor Kolasinski
-Part of mHC reproduction series: https://poisson.run/notes/deepseek-mhc
+Part of the mHC reproduction series: https://poissonlabs.ai/research/mhc-reproduction-part-2/
 """
 
 import os

@@ -1,14 +1,14 @@
 #!/bin/bash
 # =============================================================================
 # Lambda Labs A100 Setup Script
-# Part 2 of mHC reproduction: https://poisson.run/notes/deepseek-mhc
+# Part 2 of mHC reproduction: https://poissonlabs.ai/research/mhc-reproduction-part-2/
 #
 # This script provisions a Lambda Labs instance for large-scale training.
 # Run once after SSH into a fresh instance.
 #
 # Usage:
 #   ssh ubuntu@<instance-ip>
-#   git clone https://github.com/YOUR_USERNAME/mhc-repro.git
+#   git clone https://github.com/poisson-labs/mhc-repro.git
 #   cd mhc-repro
 #   bash scripts/lambda_labs/setup.sh
 # =============================================================================

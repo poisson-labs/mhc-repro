@@ -1,7 +1,7 @@
 #!/bin/bash
 # =============================================================================
 # Run All Part 2 Experiments
-# mHC reproduction: https://poisson.run/notes/deepseek-mhc
+# mHC reproduction: https://poissonlabs.ai/research/mhc-reproduction-part-2/
 #
 # This script runs the full experiment matrix:
 #   - 3 methods: residual (baseline), HC, mHC

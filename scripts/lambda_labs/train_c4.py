@@ -12,8 +12,7 @@ Usage:
     python train_c4.py --connection mhc --depth 32 --seed 42
     python train_c4.py --connection all --depth all --seeds 42,123,456
 
-Author: Taylor Kolasinski
-Part of mHC reproduction series: https://poisson.run/notes/deepseek-mhc
+Part of the mHC reproduction series: https://poissonlabs.ai/research/mhc-reproduction-part-2/
 """
 
 import os

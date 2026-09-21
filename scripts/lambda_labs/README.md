@@ -10,7 +10,7 @@ This directory contains everything needed to run Part 2 experiments on Lambda La
 ssh ubuntu@<instance-ip>
 
 # 3. Clone repo
-git clone https://github.com/YOUR_USERNAME/mhc-repro.git
+git clone https://github.com/poisson-labs/mhc-repro.git
 cd mhc-repro
 
 # 4. Run setup
@@ -24,6 +24,10 @@ bash scripts/lambda_labs/run_experiments.sh
 ```
 
 ## Cost & Time Estimates
+
+These are planning estimates for single-GPU runs, written before the experiments. The
+runs that were made, with their start and finish times, are in
+[`docs/part2-run-record.md`](../../docs/part2-run-record.md).
 
 ### Model Configurations
 
@@ -147,6 +151,7 @@ figures/
 
 ## Links
 
-- Part 1 blog post: https://poisson.run/notes/deepseek-mhc
+- Part 1 post: https://poissonlabs.ai/research/mhc-reproduction/
+- Part 2 post: https://poissonlabs.ai/research/mhc-reproduction-part-2/
 - Original paper: arXiv 2512.24880
 - Lambda Labs: https://lambdalabs.com

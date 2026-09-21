@@ -1,6 +1,6 @@
 # mHC Part 2 Dependencies
 # Pinned versions for reproducibility
-# Last updated: 2025-01-13
+# Last updated: 2026-01-13
 
 # Core ML
 # torch is installed separately with CUDA support
