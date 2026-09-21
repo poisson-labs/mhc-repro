@@ -1,3 +1,8 @@
+"""Historical diagnostic, kept for reference.
+
+Written for the implementation before the stream-persistence fix. It calls the connection
+classes through their earlier interface, so it no longer runs against the current ones.
+"""
 
 import torch
 import torch.nn as nn
