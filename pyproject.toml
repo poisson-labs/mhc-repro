@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mhc-repro"
+version = "0.1.0"
+description = "Reproduction of DeepSeek's mHC: unconstrained Hyper-Connections amplify the residual signal, Sinkhorn-constrained ones do not."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Taylor Kolasinski", email = "work@poissonlabs.ai" },
+]
+keywords = ["hyper-connections", "mhc", "sinkhorn", "residual-connections", "transformer", "reproduction"]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Floors are the minor versions of the pins in scripts/lambda_labs/requirements.txt, which
+# setup.sh installs. wandb is 0.16.6 because 0.16.0 does not import without setuptools.
+# That file does not pin torch (setup.sh installs it from the CUDA 12.1 wheel index), so the
+# torch floor is not from a pin.
+dependencies = [
+    "torch>=2.1",
+    "numpy>=1.26",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+# Part 2 (scripts/lambda_labs): C4 streaming, the GPT-2 tokenizer, and W&B logging.
+part2 = [
+    "datasets>=2.18",
+    "tiktoken>=0.6",
+    "wandb>=0.16.6",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/poisson-labs/mhc-repro"
+"Part 1 post" = "https://poissonlabs.ai/research/mhc-reproduction/"
+"Part 2 post" = "https://poissonlabs.ai/research/mhc-reproduction-part-2/"
+
+# Research code that is run from the repository root (`python -m src.train`, `python scripts/...`),
+# so the wheel carries no files; `pip install -e .` only installs the dependencies above.
+[tool.hatch.build.targets.wheel]
+bypass-selection = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["runs", "runs_c4", "runs_c4_stress", "figures", "data", "notebooks"]
+
+[tool.ruff.lint]
+# The scripts are the code that produced the published runs, so lint checks only for
+# syntax errors and undefined names. Style rules flag 60-odd unused imports, f-strings and
+# single-letter names in that code, and are left off rather than edit it.
+select = ["E9", "F63", "F7", "F82"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+pythonpath = ["."]
+addopts = "-ra"
