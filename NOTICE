@@ -1,0 +1,284 @@
+mHC reproduction (mhc-repro)
+Copyright (c) 2026 Poisson Labs
+
+This product uses software, datasets and tokenizer data from third parties, listed
+below. mhc-repro itself is distributed under the MIT licence; see LICENSE.
+
+No third-party source file is vendored in this repository, and no source file in it
+carries a third-party copyright notice or licence header. Everything below is
+installed or downloaded when the code runs. No pretrained model weights are used:
+every model is trained from random initialisation.
+
+Each entry names the page or file the terms were read from. Where an upstream
+project states no licence, the entry says so and quotes none.
+
+================================================================================
+Papers implemented
+================================================================================
+The code implements the method of the two papers below from their descriptions and
+equations. Neither paper is a source of code or data in this repository.
+
+1. Z. Xie, Y. Wei, H. Cao, C. Zhao, C. Deng, J. Li, D. Dai, H. Gao, J. Chang, K. Yu,
+   L. Zhao, S. Zhou, Z. Xu, Z. Zhang, W. Zeng, S. Hu, Y. Wang, J. Yuan, L. Wang,
+   W. Liang. "mHC: Manifold-Constrained Hyper-Connections", arXiv:2512.24880, 2025.
+   https://arxiv.org/abs/2512.24880
+
+2. D. Zhu, H. Huang, Z. Huang, Y. Zeng, Y. Mao, B. Wu, Q. Min, X. Zhou.
+   "Hyper-Connections", arXiv:2409.19606, 2024. https://arxiv.org/abs/2409.19606
+
+3. R. Sinkhorn and P. Knopp. "Concerning nonnegative matrices and doubly stochastic
+   matrices", Pacific Journal of Mathematics 21(2), 343-348, 1967.
+   https://doi.org/10.2140/pjm.1967.21.343
+
+================================================================================
+Datasets
+================================================================================
+
+1. C4 (Colossal Clean Crawled Corpus), English configuration `allenai/c4`  [Part 2]
+   Upstream: https://huggingface.co/datasets/allenai/c4
+   Source read: https://huggingface.co/datasets/allenai/c4/raw/main/README.md
+   Citation:
+     - C. Raffel, N. Shazeer, A. Roberts, K. Lee, S. Narang, M. Matena, Y. Zhou,
+       W. Li, P. J. Liu. "Exploring the Limits of Transfer Learning with a Unified
+       Text-to-Text Transformer", arXiv:1910.10683, 2019.
+   Licence terms status:
+     The dataset card's metadata reads `license: odc-by` and its "Licensing
+     Information" section reads:
+
+       We are releasing this dataset under the terms of
+       [ODC-BY](https://opendatacommons.org/licenses/by/1-0/). By using this,
+       you are also bound by the [Common Crawl terms of
+       use](https://commoncrawl.org/terms-of-use/) in respect of the content
+       contained in the dataset.
+
+     Terms of the linked pages (ODC-BY 1.0 and the Common Crawl terms of use) are not
+     restated here. The dataset is streamed at run time by the `datasets` library and
+     no part of it is stored in this repository.
+
+2. TinyShakespeare  [Part 1]
+   Upstream: https://github.com/karpathy/char-rnn (data/tinyshakespeare/input.txt,
+   1,115,394 bytes, downloaded by src/train.py from
+   https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt)
+   Source read: https://raw.githubusercontent.com/karpathy/char-rnn/master/Readme.md
+   Licence terms status:
+     The repository has no LICENSE file and GitHub reports no licence for it, so no
+     licence grant is quoted. Its Readme describes the file as "a subset of works of
+     Shakespeare". The text is downloaded when the code first runs and is not
+     redistributed here (`data/` is git-ignored).
+
+================================================================================
+Tokenizer
+================================================================================
+GPT-2 byte-pair encoding, loaded by Part 2 through `tiktoken.get_encoding("gpt2")`
+  tiktoken (checked in version 0.8.0) downloads, at run time:
+    https://openaipublic.blob.core.windows.net/gpt-2/encodings/main/vocab.bpe
+    https://openaipublic.blob.core.windows.net/gpt-2/encodings/main/encoder.json
+  These are the vocabulary files of OpenAI's GPT-2 release. No separate terms for the
+  two files were read; the licence of the release's repository is quoted instead:
+  Source read: https://raw.githubusercontent.com/openai/gpt-2/master/LICENSE
+
+  Modified MIT License
+
+  Software Copyright (c) 2019 OpenAI
+
+  We don’t claim ownership of the content you create with GPT-2, so it is yours to do with as you please.
+  We only ask that you use GPT-2 responsibly and clearly indicate your content was created using GPT-2.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+  associated documentation files (the "Software"), to deal in the Software without restriction,
+  including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
+  and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+  subject to the following conditions:
+  [The conditions and the warranty disclaimer follow in the upstream file.]
+
+================================================================================
+Third-party software dependencies
+================================================================================
+Installed from PyPI; none is copied into this repository. Runtime packages come first,
+then the packages pinned in scripts/lambda_labs/requirements.txt that the code does not
+import directly. Licence names agree with the metadata of the installed packages;
+`datasets` was not installed when this was written, so its entry rests on the
+upstream file alone.
+
+--------------------------------------------------------------------------------
+PyTorch (torch)
+https://github.com/pytorch/pytorch
+Source read: https://raw.githubusercontent.com/pytorch/pytorch/main/LICENSE
+Licence: BSD 3-Clause
+From PyTorch:
+  Copyright (c) 2016-     Facebook, Inc            (Adam Paszke)
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+--------------------------------------------------------------------------------
+NumPy (numpy)
+https://github.com/numpy/numpy
+Source read: https://raw.githubusercontent.com/numpy/numpy/main/LICENSE.txt
+Licence: BSD 3-Clause
+Copyright (c) 2005-2025, NumPy Developers.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+--------------------------------------------------------------------------------
+Matplotlib (matplotlib)
+https://github.com/matplotlib/matplotlib
+Source read: https://raw.githubusercontent.com/matplotlib/matplotlib/main/LICENSE/LICENSE
+Licence: Matplotlib licence, a Python Software Foundation licence variant
+2. Subject to the terms and conditions of this License Agreement, MDT
+hereby grants Licensee a nonexclusive, royalty-free, world-wide license
+to reproduce, analyze, test, perform and/or display publicly, prepare
+derivative works, distribute, and otherwise use matplotlib
+alone or in any derivative version, provided, however, that MDT's
+License Agreement and MDT's notice of copyright, i.e., "Copyright (c)
+2012- Matplotlib Development Team; All Rights Reserved" are retained in
+matplotlib  alone or in any derivative version prepared by
+Licensee.
+
+--------------------------------------------------------------------------------
+tiktoken (tiktoken)
+https://github.com/openai/tiktoken
+Source read: https://raw.githubusercontent.com/openai/tiktoken/main/LICENSE
+Licence: MIT
+Copyright (c) 2022 OpenAI, Shantanu Jain
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+--------------------------------------------------------------------------------
+Hugging Face Datasets (datasets)
+https://github.com/huggingface/datasets
+Source read: https://raw.githubusercontent.com/huggingface/datasets/main/LICENSE
+Licence: Apache License 2.0
+Apache License, Version 2.0, January 2004, http://www.apache.org/licenses/
+
+2. Grant of Copyright License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   copyright license to reproduce, prepare Derivative Works of,
+   publicly display, publicly perform, sublicense, and distribute the
+   Work and such Derivative Works in Source or Object form.
+
+--------------------------------------------------------------------------------
+Weights & Biases client (wandb)
+https://github.com/wandb/wandb
+Source read: https://raw.githubusercontent.com/wandb/wandb/main/LICENSE
+Licence: MIT
+Part 2 logs to W&B unless run with --no-wandb.
+Copyright (c) 2021 Weights and Biases, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+Pinned in scripts/lambda_labs/requirements.txt, not imported by the code:
+
+--------------------------------------------------------------------------------
+SciPy (scipy)
+https://github.com/scipy/scipy
+Source read: https://raw.githubusercontent.com/scipy/scipy/main/LICENSE.txt
+Licence: BSD 3-Clause
+Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+--------------------------------------------------------------------------------
+Seaborn (seaborn)
+https://github.com/mwaskom/seaborn
+Source read: https://raw.githubusercontent.com/mwaskom/seaborn/master/LICENSE.md
+Licence: BSD 3-Clause
+Copyright (c) 2012-2023, Michael L. Waskom
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+--------------------------------------------------------------------------------
+tqdm (tqdm)
+https://github.com/tqdm/tqdm
+Source read: https://raw.githubusercontent.com/tqdm/tqdm/master/LICENCE
+Licence: MPL-2.0 and MIT, per file
+Unless otherwise stated, all authors (see commit logs) retain copyright
+for their respective work, and release the work under the MIT licence
+(text below).
+
+This Source Code Form is subject to the terms of the
+Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this project,
+You can obtain one at https://mozilla.org/MPL/2.0/.
+
+--------------------------------------------------------------------------------
+Rich (rich)
+https://github.com/Textualize/rich
+Source read: https://raw.githubusercontent.com/Textualize/rich/master/LICENSE
+Licence: MIT
+Copyright (c) 2020 Will McGugan
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+--------------------------------------------------------------------------------
+psutil (psutil)
+https://github.com/giampaolo/psutil
+Source read: https://raw.githubusercontent.com/giampaolo/psutil/master/LICENSE
+Licence: BSD 3-Clause
+Copyright (c) 2009, Jay Loden, Dave Daeschler, Giampaolo Rodola
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+================================================================================
+Development tools (the `dev` extra)
+================================================================================
+
+--------------------------------------------------------------------------------
+pytest (pytest)
+https://github.com/pytest-dev/pytest
+Source read: https://raw.githubusercontent.com/pytest-dev/pytest/main/LICENSE
+Licence: MIT
+Copyright (c) 2004 Holger Krekel and others
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+[The conditions and the warranty disclaimer follow in the upstream file.]
+
+--------------------------------------------------------------------------------
+Ruff (ruff)
+https://github.com/astral-sh/ruff
+Source read: https://raw.githubusercontent.com/astral-sh/ruff/main/LICENSE
+Licence: MIT
+Copyright (c) 2022 Charles Marsh
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+[The conditions and the warranty disclaimer follow in the upstream file.]
