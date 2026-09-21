@@ -2,10 +2,15 @@
 data/
 runs/
 runs_c4/
+runs_c4_stress/
 figures/
 logs/
 *.pt
 *.pth
+
+# Files the scripts write into the working directory
+samples.txt
+environment.txt
 
 # Python
 __pycache__/
@@ -19,6 +24,11 @@ env/
 *.egg-info/
 dist/
 build/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.coverage
 
 # Jupyter
 .ipynb_checkpoints/
@@ -37,3 +47,7 @@ Thumbs.db
 # Secrets
 .env
 wandb/
+
+# Local tooling and devlogs never live in the repository (docs/repo-hygiene.md, sections 2.1 and 2.7)
+.claude/
+devlog.md
