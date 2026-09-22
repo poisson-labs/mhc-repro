@@ -50,4 +50,5 @@ wandb/
 
 # Local tooling and devlogs never live in the repository (docs/repo-hygiene.md, sections 2.1 and 2.7)
 .claude/
-devlog.md
+DEVLOG*
+devlog*

@@ -69,8 +69,6 @@ Also in `scripts/`:
   grows to keep the parameter count constant. Writes `runs/depth_sweep/` and `figures/critical_depth.png`.
 - `stress_test.py --experiment {deep,lr,all}`: a 16-layer model, and a higher learning rate.
 - `visualize_v4.py`, `visualize_v5.py`, `visualize_stress.py`: figures for the later Part 1 experiments.
-- `python -m scripts.verify_normalization`: shows that the forward pass normalizes `H_post`, which cancels the
-  factor 2 in Equation (8) of the paper.
 
 ### Part 2: 1.7B and 2.5B parameters on C4
 
